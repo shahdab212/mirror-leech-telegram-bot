@@ -42,3 +42,4 @@ class BotCommands:
     SelectCommand = f"sel{i}"
     RssCommand = f"rss{i}"
     NzbSearchCommand = f"nzbsearch{i}"
+    SpeedCommand = [f"speedtest{i}", f"sp{i}"]
