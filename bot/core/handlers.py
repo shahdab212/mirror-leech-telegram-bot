@@ -6,6 +6,8 @@ from ..helper.telegram_helper.bot_commands import BotCommands
 from ..helper.telegram_helper.filters import CustomFilters
 from .mltb_client import TgClient
 
+from ..modules.speedtest import speedtest
+
 
 def add_handlers():
     TgClient.bot.add_handler(
@@ -13,6 +15,13 @@ def add_handlers():
             authorize,
             filters=command(BotCommands.AuthorizeCommand, case_sensitive=True)
             & CustomFilters.sudo,
+        )
+    )
+    TgClient.bot.add_handler(
+        MessageHandler(
+            speedtest,
+            filters=command(BotCommands.SpeedCommand, case_sensitive=True)
+            & CustomFilters.authorized,
         )
     )
     TgClient.bot.add_handler(
